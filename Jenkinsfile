@@ -16,10 +16,16 @@ pipeline {
                 sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
             }
         }
-        stage('get junit report'){
-            steps{
-                junit 'results/*.xml'
-            }
+        // stage('get junit report'){
+        //     steps{
+        //         junit 'results/*.xml'
+        //     }
+        // }
+    }
+    post{
+        always{
+            archiveArtifacts artifacts: 'results/*.*', fingerprint: true
+            junit 'results/*.xml'
         }
     }
 }
