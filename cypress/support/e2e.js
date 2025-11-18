@@ -15,8 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-mochawesome-reporter/register';
-import "allure-cypress";
+//import 'cypress-mochawesome-reporter/register';
+//import "allure-cypress";
 
 const { register: registerCypressGrep } = require('@cypress/grep')
 registerCypressGrep()
