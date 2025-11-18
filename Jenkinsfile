@@ -7,13 +7,19 @@ pipeline {
     }
     stages{
         stage('install cypress'){
-            sh 'npm ci'
+            steps{
+                sh 'npm ci'
+            }
         }
         stage('run tests'){
-            sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
+            steps{
+                sh 'npx cypress run --spec="cypress/e2e/login.cy.js"'
+            }
         }
         stage('get junit report'){
-            junit 'results/*.xml'
+            steps{
+                junit 'results/*.xml'
+            }
         }
     }
 }
